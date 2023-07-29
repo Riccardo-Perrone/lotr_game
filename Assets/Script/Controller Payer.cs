@@ -23,7 +23,8 @@ public class ControllerPayer : MonoBehaviour
             return;
         }
         
-        transform.position = new Vector3(0, transform.position.y + input * Time.deltaTime * speed, 0);
+        transform.position = new Vector3(transform.position.x, transform.position.y + input * Time.deltaTime * speed, transform.position.z);
         transform.localScale = new Vector3(transform.localScale.x + -input * Time.deltaTime * scaleEffect, transform.localScale.y + -input * Time.deltaTime * scaleEffect);
     }
+
 }
