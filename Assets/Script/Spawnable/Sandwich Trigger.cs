@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockTrigger : MonoBehaviour
+public class SandwichTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "Player")
         {
-            collision.GetComponent<Hearts>().Hit();
+            collision.GetComponent<Hearts>().Health();
         }
     }
 }

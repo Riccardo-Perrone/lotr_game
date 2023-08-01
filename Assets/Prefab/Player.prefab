@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5843837571020245617}
   - component: {fileID: 6248691296296853992}
   - component: {fileID: 8061442784753472745}
+  - component: {fileID: 1743165944873772839}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -99,3 +100,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   scaleEffect: 1
+  maxY: 3
+  minY: -3
+--- !u!114 &1743165944873772839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7808985196214778660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d086eb47e16d42be9ec01c57f9a4513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0, z: 0}
+  fullHeartImg: {fileID: 0}
+  emptyHeartImg: {fileID: 0}
+  size: 2
+  HUD: {fileID: 0}

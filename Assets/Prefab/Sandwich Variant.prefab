@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8605023116763484074
+--- !u!1001 &1861214251966775849
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2007086763477301428, guid: de56c3833e82d4016a7a0ac139f651c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.43
+      value: 0.62654287
       objectReference: {fileID: 0}
     - target: {fileID: 2007086763477301428, guid: de56c3833e82d4016a7a0ac139f651c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.52
+      value: 3.2751794
       objectReference: {fileID: 0}
     - target: {fileID: 2007086763477301428, guid: de56c3833e82d4016a7a0ac139f651c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54,12 +54,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4118230175807814744, guid: de56c3833e82d4016a7a0ac139f651c4, type: 3}
       propertyPath: m_Name
-      value: Rock Variant
+      value: Sandwich Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4555078754122821585, guid: de56c3833e82d4016a7a0ac139f651c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: cf56260270bac435194ab2657f2c0f62, type: 3}
+      objectReference: {fileID: 21300000, guid: 82a5d5658cad8456daa261d1294322cc, type: 3}
     - target: {fileID: 4555078754122821585, guid: de56c3833e82d4016a7a0ac139f651c4, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -78,22 +78,22 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4118230175807814744, guid: de56c3833e82d4016a7a0ac139f651c4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3465591691068053183}
+      addedObject: {fileID: 8993469157716915109}
   m_SourcePrefab: {fileID: 100100000, guid: de56c3833e82d4016a7a0ac139f651c4, type: 3}
---- !u!1 &5642388457849877490 stripped
+--- !u!1 &2374162292960820849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4118230175807814744, guid: de56c3833e82d4016a7a0ac139f651c4, type: 3}
-  m_PrefabInstance: {fileID: 8605023116763484074}
+  m_PrefabInstance: {fileID: 1861214251966775849}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3465591691068053183
+--- !u!114 &8993469157716915109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5642388457849877490}
+  m_GameObject: {fileID: 2374162292960820849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38c0748d41d714afbab360d5907fae2f, type: 3}
+  m_Script: {fileID: 11500000, guid: c473bf417d943447b92eb0581057be0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
