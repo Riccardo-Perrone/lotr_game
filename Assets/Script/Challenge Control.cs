@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChallengeControl : MonoBehaviour
 {
+    public float timeToWin = 10f;
+
+
     public float speed = 3f;
     public Background background;
 
@@ -21,7 +25,7 @@ public class ChallengeControl : MonoBehaviour
 
     private void Start()
     {
-
+        timeToWin = Time.time + timeToWin;
         InvokeRepeating(nameof(UpdateItemSpawn), 0f, 1.0f);
 
     }
@@ -34,10 +38,17 @@ public class ChallengeControl : MonoBehaviour
         background.SetSpeed(speed);
         //item.SetSpeed(speed);
 
+        if (Time.time >= timeToWin) {
+            MainManager.Instance.win = true;
+            SceneManager.LoadScene("end");
+        }
+
     }
 
     void UpdateItemSpawn()
     {
         spawner.Rinormalize();
     }
+
+
 }

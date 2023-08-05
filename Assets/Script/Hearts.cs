@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Hearts : MonoBehaviour
@@ -49,6 +50,17 @@ public class Hearts : MonoBehaviour
         {
             hearts[totalHit].SetActive(false);
             totalHit++;
+        }
+         CheckDeath();
+
+    }
+
+    void CheckDeath()
+    {
+        if(totalHit >= maxHearts)
+        {
+            MainManager.Instance.win = false;
+            SceneManager.LoadScene("end");
         }
 
     }
