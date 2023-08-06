@@ -11,7 +11,6 @@ public class MainManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(Instance);
         // start of new code
         if (Instance != null)
         {
