@@ -20,11 +20,35 @@ public class Hearts : MonoBehaviour
     private int totalHit = 0;
     public int maxHearts = 4;
 
+    //hit flash
+    public float flashDuration = 1f; // Durata del lampeggio in secondi
+    public float flashSpeed = 5f; // Velocità del lampeggio
+
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    private bool isFlashing = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+
         InitHearts(0);
+    }
+
+    private void Update()
+    {
+        if (isFlashing)
+        {
+            // Calcola la nuova opacità utilizzando una sinusoide per il lampeggio
+            float flashAlpha = Mathf.Abs(Mathf.Sin(Time.time * flashSpeed)) * originalColor.a;
+
+            // Applica la nuova opacità al colore del personaggio
+            Color flashColor = new(originalColor.r, originalColor.g, originalColor.b, flashAlpha);
+            spriteRenderer.color = flashColor;
+        }
     }
 
     /* empty: il numero dei cuori vuori < max (puo servire come cambio scena)
@@ -46,13 +70,22 @@ public class Hearts : MonoBehaviour
 
     public void Hit()
     {
+        if (isFlashing) return;
         if (totalHit < maxHearts)
         {
+            isFlashing = true;
+            Invoke(nameof(StopFlash), flashDuration);
+
             hearts[totalHit].SetActive(false);
             totalHit++;
         }
          CheckDeath();
+    }
 
+    private void StopFlash()
+    {
+        isFlashing = false;
+        spriteRenderer.color = originalColor; // Ripristina il colore originale del personaggio
     }
 
     void CheckDeath()

@@ -1,23 +1,30 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class Ring : MonoBehaviour, IPointerClickHandler
 {
     public BoxCollider2D playerCollider;
     public SpriteRenderer playerRerender;
-    public float durationTime = 3;
-    public float coolDown = 7;
+
+    public float maxDurationTime = 3;
+    public float maxCooldown = 7;
+
     public Animator animatorRing;
 
-    private bool ringActivated = false;
+    public TextMeshProUGUI textCooldown;
+    public Image pannelColldown;
+
+    public Image imageReference;
+
     private float startTime;
     private float finalTime;
 
-    private Image imageReference;
-
-
+    private bool ringActivated = false;
     private bool ringReady = true;
+
+    private float actualCooldown = 0;
 
 
 
@@ -27,7 +34,6 @@ public class Ring : MonoBehaviour, IPointerClickHandler
     {
         startTime = Time.time;
         finalTime = Time.time;
-        imageReference = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -35,21 +41,36 @@ public class Ring : MonoBehaviour, IPointerClickHandler
     {
         float time = Time.time;
 
-        if (time > startTime + durationTime && ringActivated)
+        //scadenza durata ring
+        // ring active ---> ring in cooldown   |   player deactive ---> player active
+        if (time > startTime + maxDurationTime && ringActivated)
         {
             finalTime = time;
+            ringActivated = false;
+            ringReady = false;
+    
+
+            ActivatePlayer();
+            CooldownActual(maxDurationTime);
         }
 
-        ringReady = time >= finalTime + coolDown;
+        //vedo se il cooldown è finito
+        //ring in cooldown ---> ring ready
 
         if (ringReady)
         {
             RingReady();
         } else
         {
+            //show cooldown
+            textCooldown.text = (Mathf.FloorToInt(actualCooldown)).ToString();
+            actualCooldown -= 1 * Time.deltaTime;
+
             RingInCooldown();
             DeactivateAnimation();
         }
+
+
     }
 
     //Detect if a click occurs
@@ -61,15 +82,21 @@ public class Ring : MonoBehaviour, IPointerClickHandler
             ActivateAnimation();
             if (ringActivated)
             {
+                //clicco per disattivare l'anello prima del previsto
+                //ring active ---> ring in cooldown    |    deactive player ---> active player
+
                 finalTime = Time.time;
                 ringActivated = false;
                 DeactivateAnimation();
                 ActivatePlayer();
                 //TODO: Cooldown da diminuire in percentuale a quello non usato in precedenza
+                CooldownActual(finalTime - startTime);
                 RingInCooldown();
             }
             else
             {
+                //clicco per attivate l'anello
+                //ring ready ---> ring active   |   player active ---> player deactive
                 startTime = Time.time;
                 ringActivated = true;
                 DeactivatePlayer();
@@ -101,16 +128,23 @@ public class Ring : MonoBehaviour, IPointerClickHandler
         playerRerender.color = new Color(1f, 1f, 1f, 1f);
     }
 
+    private void CooldownActual(float durationRing)
+    {
+        float percDuration = durationRing / maxDurationTime;
+        actualCooldown = maxCooldown * percDuration;
+    }
     private void RingInCooldown()
     {
-        ringReady = false;
+        textCooldown.enabled = true;
+        pannelColldown.enabled = true;
+        ringReady = actualCooldown <= 0;
         imageReference.color = new Color(1f, 1f, 1f, .75f);
-
     }
 
     private void RingReady()
     {
+        textCooldown.enabled = false;
+        pannelColldown.enabled = false;
         imageReference.color = new Color(1f, 1f, 1f, 1f);
-
     }
 }
