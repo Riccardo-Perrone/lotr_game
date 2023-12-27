@@ -4,7 +4,7 @@ using UnityEngine.Rendering.LookDev;
 
 public class Background : MonoBehaviour
 {
-    private float speed = 0;
+    public float speed = 0; //in game viene settata dal'challenge controller in start e end sono statici
     public Transform ground;
     public Transform layer1;
     public float percSpeedLayer1 = 1;

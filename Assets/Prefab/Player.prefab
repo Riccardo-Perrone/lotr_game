@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5d74f73d4ad304c4580ad8d01fe467a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   scaleEffect: 1
-  maxY: 3
+  maxY: 0
   minY: -3
 --- !u!114 &1743165944873772839
 MonoBehaviour:
@@ -116,12 +116,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d086eb47e16d42be9ec01c57f9a4513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: -100, y: -50, z: 0}
+  startPosition: {x: -55, y: -10, z: 0}
   fullHeartImg: {fileID: 21300000, guid: a022454d080d2480f9df21d34ac01549, type: 3}
   emptyHeartImg: {fileID: 21300000, guid: bf4a8240312804114909516aed84818e, type: 3}
-  size: 2
+  size: 1
   HUD: {fileID: 0}
   maxHearts: 4
+  flashDuration: 1
+  flashSpeed: 5
 --- !u!95 &665958147582880648
 Animator:
   serializedVersion: 5
@@ -175,16 +177,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.12235274, y: -0.605426}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.9257143, y: 2.9257143}
+    oldSize: {x: 2.048, y: 2.048}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9257143, y: 2.9257143}
+  m_Size: {x: 0.6593173, y: 0.86498463}
   m_EdgeRadius: 0
