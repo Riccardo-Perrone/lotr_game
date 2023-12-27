@@ -12,7 +12,7 @@ public class BackgroundSection : MonoBehaviour
 
         if(transform.position.x < - size * 1.5)
         {
-            transform.position = new Vector3(transform.position.x + size*3, 0, 0);
+            transform.position = new Vector3(transform.position.x + size*3, transform.position.y, transform.position.z);
         }
     }
 
