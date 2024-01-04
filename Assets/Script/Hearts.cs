@@ -67,10 +67,10 @@ public class Hearts : MonoBehaviour
             Hit();
         }
     }
-
-    public void Hit()
+    //false = non ha fatto danno
+    public bool Hit()
     {
-        if (isFlashing) return;
+        if (isFlashing) return false;
         if (totalHit < maxHearts)
         {
             isFlashing = true;
@@ -80,6 +80,7 @@ public class Hearts : MonoBehaviour
             totalHit++;
         }
          CheckDeath();
+        return true;
     }
 
     private void StopFlash()
@@ -97,14 +98,16 @@ public class Hearts : MonoBehaviour
         }
 
     }
-
-    public void Health()
+    //true = mi sono curato effettivamente (vite < max vite)
+    public bool Health()
     {
         if (totalHit > 0)
         {
             totalHit--;
             hearts[totalHit].SetActive(true);
+            return true;
         }
+        return false;
     }
 
 

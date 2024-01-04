@@ -11,6 +11,12 @@ public class Item : MonoBehaviour
     private bool toRemove = false;
     private bool isVilible = false;
 
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,6 +28,10 @@ public class Item : MonoBehaviour
         }
     }
 
+    public void PlaySound()
+    {
+        audioSource.Play();
+    }
 
     private void OnBecameVisible()
     {

@@ -6,9 +6,15 @@ public class RockTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        bool effectiveHit;
         if (collision.name == "Player")
         {
-            collision.GetComponent<Hearts>().Hit();
+            effectiveHit = collision.GetComponent<Hearts>().Hit();
+
+            if (effectiveHit)
+            {
+                GetComponent<Item>().PlaySound();
+            }
         }
     }
 }

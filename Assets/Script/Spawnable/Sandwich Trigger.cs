@@ -6,9 +6,15 @@ public class SandwichTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        bool effectiveHealth;
         if (collision.name == "Player")
         {
-            collision.GetComponent<Hearts>().Health();
+            effectiveHealth = collision.GetComponent<Hearts>().Health();
+
+            if (effectiveHealth)
+            {
+                GetComponent<Item>().PlaySound();
+            }
         }
     }
 }
